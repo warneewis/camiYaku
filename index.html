@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamiYaku - Gestión Eficiente del Agua (ODS 6)</title>
+    <link rel="icon" type="image/svg+xml" href="iconos/logo.svg">
+    <!-- Tipografías del diseño (Ubuntu para la interfaz, Rubik Distressed para el título de la foto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/camiyaku.js" defer></script>
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header class="top-bar">
+        <div class="user-profile">
+            <img class="avatar" src="iconos/usuario.svg" alt="" width="40" height="40">
+            <span>Bienvenido, Usuario</span>
+        </div>
+        <div class="brand">
+            <img class="logo" src="iconos/logo.svg" alt="" width="40" height="36">
+            <h1>Cami<span>Yaku</span></h1>
+        </div>
+        <button class="settings-icon" type="button" aria-label="Configuración">
+            <img src="iconos/ajustes.svg" alt="" width="18" height="18">
+        </button>
+    </header>
+
+    <!-- PESTAÑAS: la pestaña de la vista actual se convierte en "Inicio" -->
+    <nav class="main-tabs" id="main-tabs" aria-label="Secciones de CamiYaku">
+        <div class="tabs-row">
+            <button class="tab-btn" data-tab="tab-consumo" data-label="Consumo del agua">Consumo del agua</button>
+            <button class="tab-btn" data-tab="tab-alertas" data-label="Gestión de alertas">Gestión de alertas</button>
+            <button class="tab-btn" data-tab="tab-recordatorio" data-label="Recordatorio">Recordatorio</button>
+            <button class="tab-btn" data-tab="tab-recomendaciones" data-label="Recomendaciones">Recomendaciones</button>
+        </div>
+        <button class="tabs-toggle" id="tabs-toggle" type="button" aria-label="Ocultar pestañas" aria-expanded="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+    </nav>
+
+    <main class="content-container">
+
+        <!-- Vista 0: INICIO -->
+        <section id="tab-inicio" class="tab-content active">
+            <div class="home-grid">
+                <article class="card photo-card">
+                    <div class="photo-text">
+                        <h2 class="photo-title">Información y consejos sobre el agua y el agua caliente</h2>
+                        <p>El agua está presente en nuestro día a día, pero pocos saben cuánta consumen realmente ni dónde podrían ahorrar. Aquí encontrarás información, inspiración y consejos prácticos para un uso más consciente del agua, el agua caliente y los recursos en general.</p>
+                    </div>
+                    <div class="photo-footer">
+                        <strong>Información sobre el Agua</strong>
+                        <a href="#" class="link-cyan" data-goto="tab-recomendaciones">Descubrir más →</a>
+                    </div>
+                </article>
+
+                <article class="card chart-card">
+                    <h3>Graficas de Consumo</h3>
+                    <div class="chart-rings">
+                        <div class="ring ring-home" style="--p: 67;"><span>67%</span></div>
+                        <div class="ring ring-home" style="--p: 35;"><span>35%</span></div>
+                    </div>
+                    <a href="#" class="link-blue" data-goto="tab-consumo">Mas detalle →</a>
+                </article>
+            </div>
+            <div class="clouds" aria-hidden="true"></div>
+        </section>
+
+        <!-- Vista 1: CONSUMO DEL AGUA -->
+        <section id="tab-consumo" class="tab-content">
+            <div class="metrics-bar">
+                <div class="metric">
+                    <span class="label">CONSUMO DE HOY</span>
+                    <h2>142 Litros</h2>
+                </div>
+                <div class="metric metric-center">
+                    <span class="label">LECTURA DEL MEDIDOR</span>
+                    <h2>1,248.3 m³</h2>
+                </div>
+                <div class="metric metric-right">
+                    <span class="label">ESTADO DEL SERVICIO</span>
+                    <h2 class="status-ok"><span class="dot"></span>Normal</h2>
+                </div>
+            </div>
+
+            <div class="two-cols">
+                <article class="card">
+                    <h3>Consumo Diario y Semanal</h3>
+                    <p class="subtitle">Metas de ahorro establecidas</p>
+                    <div class="chart-rings">
+                        <div class="ring" style="--p: 75;"><span>75%<small>Límite diario</small></span></div>
+                        <div class="ring" style="--p: 50;"><span>50%<small>Semana actual</small></span></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Consumo Histórico Mensual</h3>
+                    <p class="subtitle">Últimos 6 meses (Litros x1000)</p>
+                    <div class="bar-chart">
+                        <div class="bar-col"><div class="bar" style="height: 75%;"></div><span>Ene</span></div>
+                        <div class="bar-col"><div class="bar" style="height: 58%;"></div><span>Feb</span></div>
+                        <div class="bar-col"><div class="bar" style="height: 88%;"></div><span>Mar</span></div>
+                        <div class="bar-col"><div class="bar" style="height: 68%;"></div><span>Abr</span></div>
+                        <div class="bar-col"><div class="bar" style="height: 53%;"></div><span>May</span></div>
+                        <div class="bar-col"><div class="bar active-bar" style="height: 82%;"></div><span>Jun</span></div>
+                    </div>
+                </article>
+            </div>
+
+            <article class="card">
+                <h3>Historial de Consumo Reciente</h3>
+                <div class="table-wrap">
+                    <table class="history">
+                        <thead>
+                            <tr><th>Fecha</th><th>Consumo (L)</th><th>Costo Est.</th><th>Estado de Meta</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>30 Jun</td><td>142</td><td>S/ 0.85</td><td><span class="badge badge-green">Cumplida</span></td></tr>
+                            <tr><td>29 Jun</td><td>176</td><td>S/ 1.05</td><td><span class="badge badge-orange">Cerca del límite</span></td></tr>
+                            <tr><td>28 Jun</td><td>131</td><td>S/ 0.78</td><td><span class="badge badge-green">Cumplida</span></td></tr>
+                            <tr><td>27 Jun</td><td>205</td><td>S/ 1.23</td><td><span class="badge badge-red">Excedida</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- Vista 2: GESTIÓN DE ALERTAS -->
+        <section id="tab-alertas" class="tab-content">
+            <div class="banner-title header-flex">
+                <div>
+                    <h2>Configuración de Notificaciones en Tiempo Real</h2>
+                    <p>Monitorea fugas, consumos excesivos y recibe avisos en tu teléfono de inmediato.</p>
+                </div>
+                <button id="btn-add-alert" class="btn-primary" type="button">+ Añadir nueva alerta</button>
+            </div>
+
+            <div class="alerts-grid">
+                <article class="card">
+                    <h3>Alertas Activas y Sensores</h3>
+                    <div class="alert-switch-item line-red">
+                        <div>
+                            <strong>Fuga de Agua detectada</strong> <span class="badge badge-red">Crítico</span>
+                            <p>Patrón de flujo continuo inusual por más de 2 horas</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" class="toggle-alert" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="alert-switch-item line-orange">
+                        <div>
+                            <strong>Consumo diario alto</strong> <span class="badge badge-orange">Advertencia</span>
+                            <p>Supera el 90% del límite diario configurado</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" class="toggle-alert" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="alert-switch-item line-blue">
+                        <div>
+                            <strong>Corte de servicio programado</strong> <span class="badge badge-blue">Información</span>
+                            <p>Avisos municipales sobre mantenimiento de red</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" class="toggle-alert">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="alert-switch-item line-green">
+                        <div>
+                            <strong>Meta de ahorro mensual lograda</strong> <span class="badge badge-green">Logro</span>
+                            <p>Felicidades, mantienes el consumo por debajo de la meta</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" class="toggle-alert" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </article>
+
+                <div class="side-col">
+                    <article class="card">
+                        <h3>Canales de Envío</h3>
+                        <p class="subtitle">Elige cómo quieres ser notificado</p>
+                        <label class="channel">
+                            <span><strong>Notificaciones Push</strong><small>Inmediato en el celular</small></span>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label class="channel">
+                            <span><strong>Correo Electrónico</strong><small>Resumen diario de eventos</small></span>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label class="channel">
+                            <span><strong>Mensaje SMS (Crítico)</strong><small>Solo para alertas urgentes de fugas</small></span>
+                            <input type="checkbox">
+                        </label>
+                    </article>
+
+                    <aside class="info-box">
+                        <h3>¿Sabías qué?</h3>
+                        <p>El 10% de los hogares tienen fugas que desperdician 300 litros o más al día. Activar la alerta de fuga puede ahorrarte hasta un 40% en tu próximo recibo.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vista 3: RECORDATORIO -->
+        <section id="tab-recordatorio" class="tab-content">
+            <div class="banner-title header-flex">
+                <div>
+                    <h2>Agenda tus Recordatorios Ecológicos</h2>
+                    <p>Crea rutinas saludables de cuidado del agua y mantenimiento para tu hogar.</p>
+                </div>
+                <button id="btn-add-reminder" class="btn-primary" type="button">+ Añadir recordatorio</button>
+            </div>
+
+            <div class="reminders-grid">
+                <article class="card">
+                    <h3>Lista de Tareas y Recordatorios</h3>
+                    <div class="reminders-list" id="reminders-list">
+                        <div class="reminder-item">
+                            <span class="cal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+                            <div class="reminder-text">
+                                <strong>Revisar medidor de agua</strong>
+                                <p>Cada Fin de mes • 09:00 AM</p>
+                                <span class="next">Siguiente ejecución: 30 de Junio</span>
+                            </div>
+                            <span class="status-tag tag-pending">Pendiente</span>
+                        </div>
+                        <div class="reminder-item">
+                            <span class="cal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+                            <div class="reminder-text">
+                                <strong>Pagar recibo mensual de agua</strong>
+                                <p>Mensual • Día 15 • 10:00 AM</p>
+                                <span class="next">Siguiente ejecución: 15 de Julio</span>
+                            </div>
+                            <span class="status-tag tag-green">Al día</span>
+                        </div>
+                        <div class="reminder-item">
+                            <span class="cal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+                            <div class="reminder-text">
+                                <strong>Limpieza del tanque / cisterna</strong>
+                                <p>Cada 6 meses • 08:00 AM</p>
+                                <span class="next">Siguiente ejecución: 12 de Octubre</span>
+                            </div>
+                            <span class="status-tag tag-orange">Programado</span>
+                        </div>
+                        <div class="reminder-item">
+                            <span class="cal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+                            <div class="reminder-text">
+                                <strong>Revisar válvulas del baño</strong>
+                                <p>Cada 3 meses • Sábado</p>
+                                <span class="next">Siguiente ejecución: 15 de Agosto</span>
+                            </div>
+                            <span class="status-tag tag-pending">Pendiente</span>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="side-col">
+                    <article class="card">
+                        <h3>Consejo de Rutina</h3>
+                        <p class="subtitle">Hábitos pequeños, cambios grandes</p>
+                        <h4>Regar plantas por la noche</h4>
+                        <p>Configura un recordatorio para regar tu jardín después de las 7:00 PM. Evita la evaporación rápida del agua provocada por el sol y aprovecha cada gota al máximo.</p>
+                        <a href="#" class="link-blue">Programar este hábito →</a>
+                    </article>
+                    <div class="streak">
+                        <span class="streak-num">15</span>
+                        <div>
+                            <strong>Días consecutivos cumpliendo tareas</strong>
+                            <p>¡Vas por un excelente camino este mes!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vista 4: RECOMENDACIONES -->
+        <section id="tab-recomendaciones" class="tab-content">
+            <div class="banner-title">
+                <h2>Consejos de Ahorro e Impacto Ambiental</h2>
+                <p>Descubre cómo optimizar el uso de agua en tus actividades diarias y apoya al cuidado del planeta.</p>
+            </div>
+            <div class="recommendations-grid">
+                <article class="card tip-card tip-blue">
+                    <h3><span class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></svg></span>Duchas de 5 minutos</h3>
+                    <p>Reducir el tiempo en la ducha ahorra hasta 40 litros por baño. Intenta usar una canción de 5 minutos como temporizador.</p>
+                    <div class="tip-footer"><span class="pill">Ahorro: ~1,200 L/mes</span><a href="#" class="link-blue">Ver detalle →</a></div>
+                </article>
+                <article class="card tip-card tip-orange">
+                    <h3><span class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></svg></span>Repara Fugas a Tiempo</h3>
+                    <p>Un grifo goteando puede desperdiciar más de 30 litros al día. Revisa constantemente empaques y uniones de tu grifería.</p>
+                    <div class="tip-footer"><span class="pill">Ahorro: ~900 L/mes</span><a href="#" class="link-blue">Ver detalle →</a></div>
+                </article>
+                <article class="card tip-card tip-green">
+                    <h3><span class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></svg></span>Riego Eficiente</h3>
+                    <p>Usa sistemas de goteo o riega tus plantas de noche. Reducirás pérdidas por evaporación y tus plantas aprovecharán mejor el agua.</p>
+                    <div class="tip-footer"><span class="pill">Ahorro: ~600 L/mes</span><a href="#" class="link-blue">Ver detalle →</a></div>
+                </article>
+                <article class="card tip-card tip-cyan">
+                    <h3><span class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/></svg></span>Cosecha de Lluvia</h3>
+                    <p>Usa baldes o barriles para recolectar agua de lluvia. Es ideal para la limpieza del patio, el riego o el inodoro.</p>
+                    <div class="tip-footer"><span class="pill">Ahorro: ~500 L/mes</span><a href="#" class="link-blue">Ver detalle →</a></div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Montaña (techo) -->
+  <path d="M8 30 L32 6 L56 30" stroke="#0047ab" stroke-width="4"/>
+  <path d="M22 24 L32 14 L42 24" stroke="#45bde0" stroke-width="3"/>
+  <!-- Ondas de agua -->
+  <path d="M6 36 Q14 31 22 36 T38 36 T54 36 T62 34" stroke="#1a7fd6" stroke-width="3.5"/>
+  <path d="M10 43 Q17 39 24 43 T38 43 T52 43" stroke="#45bde0" stroke-width="3"/>
+  <path d="M17 50 Q24 47 32 50 T47 50" stroke="#5ce1e6" stroke-width="2.5"/>
+</svg>
